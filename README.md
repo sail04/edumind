@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎓 EduMind - Learn Smarter with AI
 
-## Getting Started
+EduMind is an AI-powered study companion designed to optimize academic progress. Upload lecture notes, generate structured summaries, create flashcards for active recall, generate custom practice quizzes, and discuss topics with an AI Tutor.
 
-First, run the development server:
+🔗 **Live Link**: [Deploying on Vercel... (Update this URL after your deployment finishes!)]
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+---
+
+## ✨ Features
+* **AI Tutor Chat**: Interactive tutor powered by Google Gemini to clarify formulas, normal forms, or ML concepts.
+* **Structured Summaries**: Extract short, medium, or detailed takeaways from uploaded documents.
+* **Interactive Flashcards**: Retain information using active recall decks.
+* **Practice Quizzes**: Test knowledge with custom multiple-choice assessment sets.
+* **Dynamic Study Planner**: Create customized schedules matching exam dates and targets.
+* **Learning Analytics**: Track daily focus sessions, streaks, and progress.
+
+---
+
+## 🛠️ Tech Stack
+* **Frontend**: Next.js 16 (App Router), TailwindCSS, Recharts, Framer Motion
+* **Backend**: FastAPI (Python), SQLModel (SQLite / Postgres)
+* **Auth**: Firebase Authentication (Google Sign-In)
+* **AI Engine**: Google Gemini API
+
+---
+
+## 🚀 Setup & Local Execution
+
+### 1. Environment Variables (`.env.local`)
+Create a `.env.local` file in the root directory:
+```env
+NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Run the Next.js Frontend
+```bash
+npm install
+npm run dev
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Run the FastAPI Backend
+```bash
+cd backend
+pip install -r requirements.txt
+python -m uvicorn main:app --port 8000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## ☁️ Deployment instructions (Vercel)
 
-To learn more about Next.js, take a look at the following resources:
+1. Connect this repository to your **Vercel** account.
+2. In the Vercel Project settings, go to **Environment Variables** and add all variables from `.env.local`.
+3. In **Authentication $\rightarrow$ Authorized domains** in the Firebase Console, add your Vercel deployment domain (e.g., `your-app.vercel.app`) so Google Sign-In is allowed to redirect back to your live site.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
