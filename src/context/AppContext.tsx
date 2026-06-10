@@ -501,7 +501,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         await signInWithEmailAndPassword(auth, email, pass);
         return true;
       } catch (error) {
-        console.warn("Firebase Auth email login failed, falling back to simulation:", error);
+        console.error("Firebase Auth email login failed:", error);
+        throw error;
       }
     }
     // Simulated successful login
@@ -525,7 +526,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         await signInWithPopup(auth, provider);
         return true;
       } catch (error) {
-        console.warn("Firebase Google Auth failed, falling back to simulation:", error);
+        console.error("Firebase Google Auth failed:", error);
+        throw error;
       }
     }
     // Simulation fallback Google Login
@@ -553,7 +555,8 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
         }
         return true;
       } catch (error) {
-        console.warn("Firebase Auth registration failed, falling back to simulation:", error);
+        console.error("Firebase Auth registration failed:", error);
+        throw error;
       }
     }
     const mockUser: UserProfile = {

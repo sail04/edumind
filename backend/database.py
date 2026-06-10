@@ -14,7 +14,10 @@ if DATABASE_URL:
         DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 else:
     # SQLite local fallback
-    DATABASE_URL = "sqlite:///edumind.db"
+    if os.environ.get("VERCEL"):
+        DATABASE_URL = "sqlite:////tmp/edumind.db"
+    else:
+        DATABASE_URL = "sqlite:///edumind.db"
 
 # Create Database engine
 # SQLite needs connect_args={"check_same_thread": False} for FastAPI requests concurrency
