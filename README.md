@@ -2,7 +2,7 @@
 
 EduMind is an AI-powered study companion designed to optimize academic progress. Upload lecture notes, generate structured summaries, create flashcards for active recall, generate custom practice quizzes, and discuss topics with an AI Tutor.
 
-🔗 **Live Link**: [Deploying on Vercel... (Update this URL after your deployment finishes!)]
+🔗 **Live Link**: https://edumind-eta.vercel.app
 
 ---
 
